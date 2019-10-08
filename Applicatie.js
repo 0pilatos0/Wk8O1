@@ -31,6 +31,36 @@ function Main(){
         Main();
     }
 }
+function Bonnetje(){
+    let price1 = 0, price2 = 0, price3 = 0, price4 = 0, price5 = 0
+    let bill = document.getElementById('bill')
+    if(orderedAmounts['fris'] != 0){
+        price1 = orderedAmounts['fris'] * prijzen[0]
+        bill.innerHTML += ("Fris: " + orderedAmounts['fris'] + ", Prijs: " + " : €" + price1 + "<br>") 
+    }
+    if(orderedAmounts['bier'] != 0){
+        price2 = orderedAmounts['bier'] * prijzen[1]
+        bill.innerHTML += ("Bier: " + orderedAmounts['bier'] + ", Prijs: " + " : €" + price2 + "<br>")
+    }
+    if(orderedAmounts['wijn'] != 0){
+        price3 = orderedAmounts['wijn'] * prijzen[2]
+        bill.innerHTML += ("Wijn: " + orderedAmounts['wijn'] + ", Prijs: " + " : €" + price3 + "<br>")
+    }
+    if(orderedAmounts['8bitterballen'] != 0){
+        price4 = orderedAmounts['8bitterballen'] * prijzen[3]
+        bill.innerHTML += ("Schaaltje bitterballen 8 stuks: " + orderedAmounts['8bitterballen'] + ", Prijs: " + " : €" + price4 + "<br>")
+    }
+    if(orderedAmounts['16bitterballen'] != 0){
+        price5 = orderedAmounts['16bitterballen'] * prijzen[4]
+        bill.innerHTML += ("Schaaltje bitterballen 16 stuks: " + orderedAmounts['16bitterballen'] + ", Prijs: " + " : €" + price5 + "<br>")
+    }
+
+    let totaal = parseInt(price1) 
+    totaal += parseInt(price2);     totaal += parseInt(price3) ;     totaal += parseInt(price4);     totaal += parseInt(price5);
+    bill.innerHTML += ("Totaal: €" + totaal)
+
+}
+
 function Btoevoegen(orderType, vraag){
     orderedAmounts[orderType] += parseInt(vraag);
     Main();
@@ -74,32 +104,3 @@ function Bestellen(orderType){
     }
 }
 
-function Bonnetje(){
-    let price1 = 0, price2 = 0, price3 = 0, price4 = 0, price5 = 0
-    let bill = document.getElementById('bill')
-    if(orderedAmounts['fris'] != 0){
-        price1 = orderedAmounts['fris'] * prijzen[0]
-        bill.innerHTML += ("Fris: " + orderedAmounts['fris'] + ", Prijs: " + " : €" + price1 + "<br>") 
-    }
-    if(orderedAmounts['bier'] != 0){
-        price2 = orderedAmounts['bier'] * prijzen[1]
-        bill.innerHTML += ("Bier: " + orderedAmounts['bier'] + ", Prijs: " + " : €" + price2 + "<br>")
-    }
-    if(orderedAmounts['wijn'] != 0){
-        price3 = orderedAmounts['wijn'] * prijzen[2]
-        bill.innerHTML += ("Wijn: " + orderedAmounts['wijn'] + ", Prijs: " + " : €" + price3 + "<br>")
-    }
-    if(orderedAmounts['8bitterballen'] != 0){
-        price4 = orderedAmounts['8bitterballen'] * prijzen[3]
-        bill.innerHTML += ("Schaaltje bitterballen 8 stuks: " + orderedAmounts['8bitterballen'] + ", Prijs: " + " : €" + price4 + "<br>")
-    }
-    if(orderedAmounts['16bitterballen'] != 0){
-        price5 = orderedAmounts['16bitterballen'] * prijzen[4]
-        bill.innerHTML += ("Schaaltje bitterballen 16 stuks: " + orderedAmounts['16bitterballen'] + ", Prijs: " + " : €" + price5 + "<br>")
-    }
-
-    let totaal = parseInt(price1) 
-    totaal += parseInt(price2);     totaal += parseInt(price3) ;     totaal += parseInt(price4);     totaal += parseInt(price5);
-    bill.innerHTML += ("Totaal: €" + totaal)
-
-}
